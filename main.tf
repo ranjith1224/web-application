@@ -1,6 +1,9 @@
 # Create VPC
 resource "aws_vpc" "ranjith" {
   cidr_block = "10.0.0.0/16"
+  tags = {
+    Name = "ranjith-vpc"
+  }
 }
 
 # Create subnets
@@ -9,12 +12,20 @@ resource "aws_subnet" "web-pub-1a" {
   cidr_block = "10.0.1.0/24"
   availability_zone       = "ap-south-1a"
   map_public_ip_on_launch = true
+
+   tags = {
+    Name = "web-pub"
+  }
 }
 
 # Create internet gateway
 resource "aws_internet_gateway" "my_igw" {
   vpc_id = aws_vpc.ranjith.id
+   tags = {
+    Name = "igw"
+  }
 }
+
 
 # Create routing table
 resource "aws_route_table" "my_route_table" {
