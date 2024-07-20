@@ -9,6 +9,18 @@ resource "aws_s3_bucket" "terraformbucket" {
 }
 
 
+<<<<<<< HEAD
+=======
+# backend in S3
+
+terraform {
+  backend "s3" {
+    bucket = "ranjith-tf"
+    key    = "dev/terraform.state.tf"
+    region = "ap-south-1"
+  }
+}
+>>>>>>> 6588a32 (terraform code)
 
 
 
